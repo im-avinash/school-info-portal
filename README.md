@@ -1,40 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# 🏫 School Info Portal
 
-## Getting Started
+A mini web application built with **Next.js** and **MySQL** that allows users to:
+1. Add school details (with image upload) via a form.
+2. View all schools in a responsive, product-card style listing page.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Features
+
+- **Add School**: Form with validation (react-hook-form).
+- **Show Schools**: Displays schools in a responsive grid (like ecommerce).
+- **Image Upload**: Stores school images in `/public/schoolImages`.
+- **Database**: Uses MySQL to store school information.
+- **Responsive Design**: Works on desktop and mobile.
+
+---
+
+## 🗄️ Database Setup
+
+Run the following SQL to create the database and table:
+
+```MySQL
+CREATE DATABASE school_db;
+USE school_db;
+
+CREATE TABLE schools (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name TEXT NOT NULL,
+  address TEXT NOT NULL,
+  city TEXT NOT NULL,
+  state TEXT NOT NULL,
+  contact VARCHAR(20) NOT NULL,
+  image TEXT,
+  email_id TEXT NOT NULL
+);
+
+Project Structure
+school-info-portal/
+├── lib/
+│   └── db.js                # MySQL connection helper
+├── pages/
+│   ├── _app.js
+│   ├── addSchool.jsx        # Add school form
+│   ├── showSchools.jsx      # Show schools listing
+│   └── api/
+│       └── schools/
+│           └── index.js     # API route (GET + POST)
+├── public/
+│   └── schoolImages/        # Uploaded school images
+├── styles/
+│   └── globals.css
+├── sql/
+│   └── schema.sql           # DB schema
+├── .env.local               # Env vars (ignored in git)
+├── tailwind.config.js
+├── package.json
+└── README.md
 ```
+## Running Locally
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Clone the repo
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+git clone https://github.com/im-avinash/school-info-portal.git
+cd school-info-portal
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+##Install dependencies
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+npm install
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## Setup DB
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+Start MySQL.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Run sql/schema.sql or the queries above.
 
-## Deploy on Vercel
+Run the dev server
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+npm run dev
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+
+## Visit: http://localhost:3000
+
