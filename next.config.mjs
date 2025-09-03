@@ -9,16 +9,9 @@ const nextConfig = {
       },
     ],
   },
-  devIndicators: {
-    buildActivity: false, // removes build spinner
-  },
-  experimental: {
-    // 👇 this flag disables the new DevTools badge
-    // (available since Next.js 14.1)
-    nextScriptWorkers: false,
-  },
+  devIndicators: false,
   devTools: {
-    enabled: false, // 👈 THIS is the key setting
+    enabled: false, 
   },
 };
 
